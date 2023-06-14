@@ -1,4 +1,4 @@
-mutation {
+type mutation {
   postCreate(
     input: {
       title: "Next.js"
