@@ -1,11 +1,21 @@
-mutation CreateNewPost($title: String!, $url: String!) {
-  postCreate(input: { title: $title, url: $url }) {
+mutation {
+  postCreate(
+    input: {
+      title: "Next.js"
+      url: "https://nextjs.org"
+      comments: [{ create: { message: "Next.js is awesome!" } }]
+    }
+  ) {
     post {
       id
       title
-      url
-      createdAt
-      updatedAt
+      comments(first: 1) {
+        edges {
+          node {
+            message
+          }
+        }
+      }
     }
   }
 }
